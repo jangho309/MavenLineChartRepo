@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+	<property name="LogFilePath" value="${catalina.base}/webapps/LineChartMV/logs" />
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+    </appender>
+   
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LogFilePath}/LineChartMV_logback.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        	<!-- 일자별 로그 파일 -->
+        	<fileNamePattern>${LogFilePath}/LineChartMV_%i.%d{yyyy-MM-dd}.log</fileNamePattern>
+        	<maxFileSize>100MB</maxFileSize>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- 해당 패키지 영역 로깅 -->
+<!--     <logger name="seven.call" level="info" additivity="false"> -->
+<!--     	<appender-ref ref="file" /> -->
+<!--    	 	<appender-ref ref="STDOUT" /> -->
+<!--     </logger> -->
+    
+    <!-- 전체 영역 로깅 -->
+    <root level="debug">
+    	<appender-ref ref="STDOUT" />
+        <appender-ref ref="file" />
+    </root>
+
+ </configuration>
