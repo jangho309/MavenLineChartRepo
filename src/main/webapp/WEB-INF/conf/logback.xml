@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="30 seconds">
-	<property name="LogFilePath" value="${catalina.base}/webapps/LineChartMV/logs" />
+	<property name="LogFilePath" value="${catalina.base}/webapps/MavenLine/logs" />
 	
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
@@ -9,13 +9,13 @@
     </appender>
    
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LogFilePath}/LineChartMV_logback.log</file>
+        <file>${LogFilePath}/MavenLine_logback.log</file>
         <encoder>
             <pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
         	<!-- 일자별 로그 파일 -->
-        	<fileNamePattern>${LogFilePath}/LineChartMV_%i.%d{yyyy-MM-dd}.log</fileNamePattern>
+        	<fileNamePattern>${LogFilePath}/MavenLine_%i.%d{yyyy-MM-dd}.log</fileNamePattern>
         	<maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
     </appender>
